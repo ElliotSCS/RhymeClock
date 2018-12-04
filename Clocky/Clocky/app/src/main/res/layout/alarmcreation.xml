@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ToggleButton
+        android:id="@+id/wednesdayButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="16dp"
+        android:text="Mon."
+        android:textOff="-"
+        android:textOn="Wed."
+        app:layout_constraintStart_toEndOf="@+id/tuesdayButton"
+        app:layout_constraintTop_toBottomOf="@+id/simpleTimePicker" />
+
+    <ToggleButton
+        android:id="@+id/saturdayButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="16dp"
+        android:text="Mon."
+        android:textOff="-"
+        android:textOn="Sat."
+        app:layout_constraintStart_toEndOf="@+id/fridayButton"
+        app:layout_constraintTop_toBottomOf="@+id/simpleTimePicker" />
+
+    <ToggleButton
+        android:id="@+id/sundayButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:text="Mon."
+        android:textOff="-"
+        android:textOn="Sun."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/saturdayButton"
+        app:layout_constraintTop_toBottomOf="@+id/simpleTimePicker" />
+
+    <ToggleButton
+        android:id="@+id/fridayButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="16dp"
+        android:text="Mon."
+        android:textOff="-"
+        android:textOn="Fri."
+        app:layout_constraintStart_toEndOf="@+id/thursdayButton"
+        app:layout_constraintTop_toBottomOf="@+id/simpleTimePicker" />
+
+    <ToggleButton
+        android:id="@+id/thursdayButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="16dp"
+        android:text="Mon."
+        android:textOff="-"
+        android:textOn="Thur."
+        app:layout_constraintStart_toEndOf="@+id/wednesdayButton"
+        app:layout_constraintTop_toBottomOf="@+id/simpleTimePicker" />
+
+    <ToggleButton
+        android:id="@+id/tuesdayButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="16dp"
+        android:text="Mon."
+        android:textOff="-"
+        android:textOn="Tue."
+        app:layout_constraintStart_toEndOf="@+id/mondayButton"
+        app:layout_constraintTop_toBottomOf="@+id/simpleTimePicker" />
+
+    <TimePicker
+        android:id="@+id/simpleTimePicker"
+        android:layout_width="500dp"
+        android:layout_height="250dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:timePickerMode="spinner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ToggleButton
+        android:id="@+id/mondayButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:text="Mon."
+        android:textOff="-"
+        android:textOn="Mon."
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/simpleTimePicker" />
+
+    <Button
+        android:id="@+id/cancelButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginBottom="50dp"
+        android:onClick="cancelMethod"
+        android:text="Cancel"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="50dp"
+        android:onClick="saveMethod"
+        android:text="Save"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</android.support.constraint.ConstraintLayout>
