@@ -23,13 +23,13 @@ public class MainActivity extends AppCompatActivity {
     }
     public void saveMethod(View alarmcreation) {
         int[] days = new int[7];
-        ToggleButton mon = (ToggleButton) findViewById(R.id.mondayButton);
-        ToggleButton tues = (ToggleButton) findViewById(R.id.tuesdayButton);
-        ToggleButton wed = (ToggleButton) findViewById(R.id.wednesdayButton);
-        ToggleButton thur = (ToggleButton) findViewById(R.id.thursdayButton);
-        ToggleButton fri = (ToggleButton) findViewById(R.id.fridayButton);
-        ToggleButton sat = (ToggleButton) findViewById(R.id.saturdayButton);
-        ToggleButton sun = (ToggleButton) findViewById(R.id.sundayButton);
+        ToggleButton mon = findViewById(R.id.mondayButton);
+        ToggleButton tues = findViewById(R.id.tuesdayButton);
+        ToggleButton wed = findViewById(R.id.wednesdayButton);
+        ToggleButton thur = findViewById(R.id.thursdayButton);
+        ToggleButton fri = findViewById(R.id.fridayButton);
+        ToggleButton sat = findViewById(R.id.saturdayButton);
+        ToggleButton sun = findViewById(R.id.sundayButton);
         if (mon.isChecked()) {
             days[0] = 1;
         } else {
@@ -75,5 +75,9 @@ public class MainActivity extends AppCompatActivity {
             hour = hour - 12;
             amOrPm = "pm";
         }
+        setContentView(R.layout.activity_main);
+    }
+    public void alarmPanel() {
+
     }
 }
