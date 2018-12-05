@@ -18,6 +18,15 @@ public class MainActivity extends AppCompatActivity {
     public void createAlarm(View activity_main) {
         setContentView(R.layout.alarmcreation);
     }
+    public void gotoAlarm(View activity_main) {
+        setContentView(R.layout.activity_main);
+    }
+    public void gotoSound(View activity_main) {
+        setContentView(R.layout.sounds);
+    }
+    public void gotoSetting(View activity_main) {
+        setContentView(R.layout.settings);
+    }
     public void cancelMethod(View alarmcreation) {
         setContentView(R.layout.activity_main);
     }
