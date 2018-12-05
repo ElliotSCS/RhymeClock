@@ -83,7 +83,7 @@
                     android:id="@+id/switch5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Switch" />
+                    android:text="Placeholder" />
             </FrameLayout>
 
             <FrameLayout
@@ -94,7 +94,7 @@
                     android:id="@+id/switch6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Switch" />
+                    android:text="Placeholder" />
             </FrameLayout>
 
             <FrameLayout
@@ -105,7 +105,7 @@
                     android:id="@+id/switch4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Switch" />
+                    android:text="Placeholder" />
             </FrameLayout>
         </LinearLayout>
     </ScrollView>

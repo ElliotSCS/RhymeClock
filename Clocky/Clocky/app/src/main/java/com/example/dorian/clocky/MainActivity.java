@@ -30,6 +30,9 @@ public class MainActivity extends AppCompatActivity {
     public void cancelMethod(View alarmcreation) {
         setContentView(R.layout.activity_main);
     }
+    public void soundSet(View sounds) {
+        //ACTION_RINGTONE_PICKER()
+    }
     public void saveMethod(View alarmcreation) {
         int[] days = new int[7];
         ToggleButton mon = findViewById(R.id.mondayButton);
