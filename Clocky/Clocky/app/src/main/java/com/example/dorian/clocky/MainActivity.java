@@ -95,8 +95,11 @@ public class MainActivity extends AppCompatActivity {
         ConstraintLayout sample = findViewById(R.id.Sample_Alarm);
         if (firstAlarm) {
             final TextView thing = findViewById(R.id.alarmTime);
-            String fack = "test";
-            thing.setText(hour + ":" + minute + " " + AP);
+            String insert = "";
+            if (minute < 10) {
+                insert = "0";
+            }
+            thing.setText(hour + ":" + insert + minute + " " + AP);
             //hour + ":" + minute + " " + AP
             Switch blah = findViewById(R.id.OnOffSwitch);
             blah.setChecked(true);
@@ -130,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         else {
-            ConstraintLayout creating = new ConstraintLayout(sample);
+            //ConstraintLayout creating = new ConstraintLayout(sample);
         }
         //firstAlarm = false;
     }
