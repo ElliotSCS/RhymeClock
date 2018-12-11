@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 import android.widget.Switch;
 
@@ -136,5 +137,10 @@ public class MainActivity extends AppCompatActivity {
             //ConstraintLayout creating = new ConstraintLayout(sample);
         }
         //firstAlarm = false;
+    }
+    public void sendRhyme() {
+        Toast.makeText(MainActivity.this, "This is my Toast message!",
+                Toast.LENGTH_LONG).show();
+        return;
     }
 }
