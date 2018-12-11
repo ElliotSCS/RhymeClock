@@ -85,14 +85,15 @@
                     app:layout_constraintTop_toBottomOf="@+id/progressBar" />
 
             <Button
-                    android:id="@+id/submit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="60dp"
-                    android:text="Rhyme!"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/wordsCompleted" />
+                android:id="@+id/submit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="60dp"
+                android:onClick="sendRhyme"
+                android:text="Rhyme!"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/wordsCompleted" />
 
             <Button
                 android:id="@+id/skip"
@@ -114,6 +115,7 @@
                 android:layout_marginBottom="8dp"
                 android:ems="10"
                 android:inputType="textPersonName"
+                android:onClick="sendRhyme"
                 android:text="Rhyme"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
