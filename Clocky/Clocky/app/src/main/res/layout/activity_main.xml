@@ -32,27 +32,14 @@
         app:useCompatPadding="true" />
 
     <Button
-        android:id="@+id/sounds"
+        android:id="@+id/demo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
         android:onClick="gotoSound"
-        android:text="SOUNDS"
-        app:layout_constraintEnd_toStartOf="@+id/settings"
+        android:text="DEMO"
         app:layout_constraintStart_toEndOf="@+id/alarms"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/settings"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:onClick="gotoSetting"
-        android:text="SETTINGS"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
@@ -65,48 +52,138 @@
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sounds"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toBottomOf="@+id/demo"
+        app:layout_constraintVertical_bias="1.0">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <FrameLayout
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/Sample_Alarm"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="84dp"
+                android:visibility="visible">
+
+                <ToggleButton
+                    android:id="@+id/sundayToggle"
+                    android:layout_width="37dp"
+                    android:layout_height="37dp"
+                    android:layout_marginBottom="8dp"
+                    android:clickable="false"
+                    android:text="S"
+                    android:textOff="S"
+                    android:textOn="S"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/saturdayToggle" />
+
+                <ToggleButton
+                    android:id="@+id/saturdayToggle"
+                    android:layout_width="37dp"
+                    android:layout_height="37dp"
+                    android:layout_marginBottom="8dp"
+                    android:clickable="false"
+                    android:text="Sa"
+                    android:textOff="Sa"
+                    android:textOn="Sa"
+                    android:textSize="10sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/fridayToggle" />
+
+                <ToggleButton
+                    android:id="@+id/fridayToggle"
+                    android:layout_width="37dp"
+                    android:layout_height="37dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:clickable="false"
+                    android:text="F"
+                    android:textOff="F"
+                    android:textOn="F"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/alarmTime" />
+
+                <ToggleButton
+                    android:id="@+id/thursdayToggle"
+                    android:layout_width="37dp"
+                    android:layout_height="37dp"
+                    android:layout_marginTop="8dp"
+                    android:clickable="false"
+                    android:text="Th"
+                    android:textOff="Th"
+                    android:textOn="Th"
+                    android:textSize="10sp"
+                    app:layout_constraintStart_toEndOf="@+id/wednesdayToggle"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ToggleButton
+                    android:id="@+id/wednesdayToggle"
+                    android:layout_width="37dp"
+                    android:layout_height="37dp"
+                    android:layout_marginTop="8dp"
+                    android:clickable="false"
+                    android:text="W"
+                    android:textOff="W"
+                    android:textOn="W"
+                    app:layout_constraintStart_toEndOf="@+id/tuesdayToggle"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ToggleButton
+                    android:id="@+id/tuesdayToggle"
+                    android:layout_width="37dp"
+                    android:layout_height="37dp"
+                    android:layout_marginTop="8dp"
+                    android:clickable="false"
+                    android:text="T"
+                    android:textOff="T"
+                    android:textOn="T"
+                    app:layout_constraintStart_toEndOf="@+id/MondayToggle"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ToggleButton
+                    android:id="@+id/MondayToggle"
+                    android:layout_width="37dp"
+                    android:layout_height="37dp"
+                    android:layout_marginTop="8dp"
+                    android:clickable="false"
+                    android:text="M"
+                    android:textOff="M"
+                    android:textOn="M"
+                    android:textSize="10sp"
+                    android:visibility="visible"
+                    app:layout_constraintStart_toEndOf="@+id/alarmTime"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <Switch
-                    android:id="@+id/switch5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Placeholder" />
-            </FrameLayout>
+                    android:id="@+id/OnOffSwitch"
+                    android:layout_width="68dp"
+                    android:layout_height="27dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <Switch
-                    android:id="@+id/switch6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Placeholder" />
-            </FrameLayout>
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <Switch
-                    android:id="@+id/switch4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Placeholder" />
-            </FrameLayout>
+                <TextView
+                    android:id="@+id/alarmTime"
+                    android:layout_width="158dp"
+                    android:layout_height="54dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:gravity="center"
+                    android:text="XX:XX"
+                    android:textSize="42dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </android.support.constraint.ConstraintLayout>
         </LinearLayout>
     </ScrollView>
 
