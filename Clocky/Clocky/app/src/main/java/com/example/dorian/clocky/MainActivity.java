@@ -139,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
         //firstAlarm = false;
     }
     public void sendRhyme() {
-        Toast.makeText(MainActivity.this, "This is my Toast message!",
+        Toast.makeText(getBaseContext(), "This is my Toast message!",
                 Toast.LENGTH_LONG).show();
         return;
     }
