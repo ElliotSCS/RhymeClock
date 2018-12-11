@@ -32,14 +32,14 @@
         app:useCompatPadding="true" />
 
     <Button
-        android:id="@+id/sounds"
+        android:id="@+id/demo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:onClick="gotoSound"
-        android:text="SOUNDS"
+        android:text="DEMO"
         app:layout_constraintEnd_toStartOf="@+id/settings"
         app:layout_constraintStart_toEndOf="@+id/alarms"
         app:layout_constraintTop_toTopOf="parent" />
@@ -67,7 +67,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sounds"
+        app:layout_constraintTop_toBottomOf="@+id/demo"
         app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
