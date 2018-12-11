@@ -26,31 +26,19 @@
             android:id="@+id/demo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:onClick="gotoSound"
             android:text="DEMO"
-            app:layout_constraintEnd_toEndOf="parent"
-<<<<<<< HEAD
-            app:layout_constraintHorizontal_bias="0.27"
-=======
->>>>>>> 37f7c8bd0fa189c64c67d8fec5a18eb2d345416a
-            app:layout_constraintStart_toEndOf="@+id/alarms"
-            app:layout_constraintTop_toTopOf="parent" />
-
+            app:layout_constraintEnd_toEndOf="parent"> </Button>
         <android.support.constraint.ConstraintLayout
             android:layout_width="395dp"
             android:layout_height="678dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-<<<<<<< HEAD
-            app:layout_constraintTop_toBottomOf="@+id/demo">
+            app:layout_constraintStart_toStartOf="parent">
 
             <TextView
                 android:id="@+id/wordToRhyme"
@@ -68,49 +56,44 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ProgressBar
-                android:id="@+id/progressBar"
-                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-                android:layout_width="0dp"
-                android:layout_height="28dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:scaleY="4"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/wordToRhyme" />
+                    android:id="@+id/progressBar"
+                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                    android:layout_width="0dp"
+                    android:layout_height="28dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:scaleY="4"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/wordToRhyme" />
 
             <TextView
-                android:id="@+id/wordsCompleted"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                android:fontFamily="serif"
-                android:gravity="center_vertical"
-                android:text="placeholder"
-                android:textSize="18sp"
-                android:textStyle="italic"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/progressBar" />
-=======
-            app:layout_constraintTop_toBottomOf="@+id/demo"
-            app:layout_constraintVertical_bias="0.0">
->>>>>>> 37f7c8bd0fa189c64c67d8fec5a18eb2d345416a
+                    android:id="@+id/wordsCompleted"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:fontFamily="serif"
+                    android:gravity="center_vertical"
+                    android:text="placeholder"
+                    android:textSize="18sp"
+                    android:textStyle="italic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/progressBar" />
 
             <Button
-                android:id="@+id/submit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="60dp"
-                android:text="Rhyme!"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/wordsCompleted" />
+                    android:id="@+id/submit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="60dp"
+                    android:text="Rhyme!"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/wordsCompleted" />
 
-<<<<<<< HEAD
             <Button
                 android:id="@+id/skip"
                 android:layout_width="wrap_content"
@@ -139,8 +122,5 @@
                 app:layout_constraintVertical_bias="0.118" />
 
         </android.support.constraint.ConstraintLayout>
-
-=======
->>>>>>> 37f7c8bd0fa189c64c67d8fec5a18eb2d345416a
     </android.support.constraint.ConstraintLayout>
 </android.support.constraint.ConstraintLayout>
