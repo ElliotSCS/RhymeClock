@@ -39,10 +39,7 @@
         android:layout_marginTop="8dp"
         android:onClick="gotoSound"
         android:text="DEMO"
-<<<<<<< HEAD
         app:layout_constraintEnd_toStartOf="@+id/settings"
-=======
->>>>>>> 37f7c8bd0fa189c64c67d8fec5a18eb2d345416a
         app:layout_constraintStart_toEndOf="@+id/alarms"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -59,11 +56,8 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/demo"
-<<<<<<< HEAD
         app:layout_constraintVertical_bias="0.0">
-=======
         app:layout_constraintVertical_bias="1.0">
->>>>>>> 37f7c8bd0fa189c64c67d8fec5a18eb2d345416a
 
         <LinearLayout
             android:layout_width="match_parent"
