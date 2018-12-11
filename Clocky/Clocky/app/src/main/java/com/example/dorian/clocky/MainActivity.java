@@ -138,9 +138,13 @@ public class MainActivity extends AppCompatActivity {
         }
         //firstAlarm = false;
     }
-    public void sendRhyme() {
-        Toast.makeText(getBaseContext(), "This is my Toast message!",
+    public void sendRhyme(View argument) {
+            Toast.makeText(getApplicationContext(), "This is my Toast message!",
                 Toast.LENGTH_LONG).show();
         return;
+    }
+    public String soundsSimilar(String word) {
+        String s = word.replaceAll(" ", "+");
+        return getJSON("http://api.datamuse.com/words?sl=" + s);
     }
 }
