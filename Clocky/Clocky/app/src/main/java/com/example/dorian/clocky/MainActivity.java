@@ -180,17 +180,6 @@ public class MainActivity extends AppCompatActivity {
             alarmMgr.cancel(alarmIntent);
         }
     }
-    /**
-    final EditText takeme = findViewById(R.id.editText);
-    final String taker = takeme.toString();
-    final TextView mainWord = findViewById(R.id.wordToRhyme);
-    final String mainString = mainWord.toString();
-    public void sendRhyme(View argument) {
-        if (soundsSimilar(mainString).contains(taker)){
-            Toast.makeText(getApplicationContext(), "This is it", Toast.LENGTH_LONG).show();
-        }
-    }
-*/
     public void skip() {
         TextView thing = findViewById(R.id.wordToRhyme);
         thing.setText(words[(int) (Math.random() * (words.length - 1))]);
@@ -199,7 +188,6 @@ public class MainActivity extends AppCompatActivity {
         skip();
     }
     public void sendRhyme(View argument) {
-        System.out.println(soundsSimilar("pie"));
         TextView thing = findViewById(R.id.wordToRhyme);
         EditText otherThing = findViewById(R.id.editText);
         if (soundsSimilar(thing.getText().toString()).contains(otherThing.getText())) {
