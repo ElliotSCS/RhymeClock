@@ -17,7 +17,14 @@ import android.widget.Toast;
 import android.widget.ToggleButton;
 import android.widget.Switch;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -202,15 +209,8 @@ public class MainActivity extends AppCompatActivity {
     public void skipThing(View rhymegame) {
         skip();
     }
-    public void sendRhyme(View argument) {
-        String name = soundsSimilar("pie");
-            System.out.println(name);
-    }
-    public void gotoSound(final View activity_main) {
-        setContentView(R.layout.rhymegame);
-        final EditText edit =  (EditText) findViewById(R.id.editText);
-        requestQueue = Volley.newRequestQueue(this);
-        System.out.println(soundsSimilar("pie"));
+    public RequestQueue requestQueue;
+    public void sendRhyme(final View activity_main) {
         TextView thing = findViewById(R.id.wordToRhyme);
         EditText otherThing = findViewById(R.id.editText);
         if (soundsSimilar(thing.getText().toString()).contains(otherThing.getText())) {
@@ -233,8 +233,9 @@ public class MainActivity extends AppCompatActivity {
         TextView rhymeWord = findViewById(R.id.wordToRhyme);
         int whichWord = (int) (Math.random()*(words.length - 1));
         rhymeWord.setText(words[whichWord]);
+        requestQueue = Volley.newRequestQueue(this);
     }
-    public RequestQueue requestQueue;
+
     //THIS IS ALL FROM A DIFFERENT APP.
     public String soundsSimilar(String word) {
         String s = word.replaceAll(" ", "+");
@@ -275,5 +276,4 @@ public class MainActivity extends AppCompatActivity {
         }
         return s != null ? s.toString() : null;
     }
-
 }
