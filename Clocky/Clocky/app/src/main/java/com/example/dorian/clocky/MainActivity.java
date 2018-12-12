@@ -12,6 +12,17 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 import android.widget.Switch;
+
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonObject;
+import com.google.gson.stream.JsonReader;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
@@ -165,8 +176,29 @@ public class MainActivity extends AppCompatActivity {
                 Toast.LENGTH_LONG).show();
         return;
     }
+    //THIS IS ALL FROM A DIFFERENT APP.
     public String soundsSimilar(String word) {
         String s = word.replaceAll(" ", "+");
         return getJSON("http://api.datamuse.com/words?sl=" + s);
+    }
+    private String getJSON(String url) {
+        URL datamuse;
+        URLConnection dc;
+        StringBuilder s = null;
+        try {
+            datamuse = new URL(url);
+            dc = datamuse.openConnection();
+            BufferedReader in = new BufferedReader(new InputStreamReader(dc.getInputStream(), "UTF-8"));
+            String inputLine;
+            s = new StringBuilder();
+            while ((inputLine = in.readLine()) != null)
+                s.append(inputLine);
+            in.close();
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return s != null ? s.toString() : null;
     }
 }
