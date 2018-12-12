@@ -191,24 +191,29 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 */
-    public void skipThing(View rhymegame) {
+    public void skip() {
         TextView thing = findViewById(R.id.wordToRhyme);
         thing.setText(words[(int) (Math.random() * (words.length - 1))]);
     }
+    public void skipThing(View rhymegame) {
+        skip();
+    }
     public void sendRhyme(View argument) {
         System.out.println(soundsSimilar("pie"));
-        /*TextView thing = findViewById(R.id.wordToRhyme);
+        TextView thing = findViewById(R.id.wordToRhyme);
         EditText otherThing = findViewById(R.id.editText);
-        if (soundsSimilar(getString(R.id.wordToRhyme).toString()).contains()) {
-            Toast.makeText(getApplicationContext(), "This is it", Toast.LENGTH_LONG).show();
-        }*/
-        ProgressBar yup = findViewById(R.id.progressBar);
-        if (yup.getProgress() == 0) {
-            yup.setProgress(33);
-        } else if (yup.getProgress() == 33) {
-            yup.setProgress(66);
-        } else {
-            yup.setProgress(100);
+        if (soundsSimilar(thing.getText().toString()).contains(otherThing.getText())) {
+            Toast.makeText(getApplicationContext(), "Correct!", Toast.LENGTH_LONG).show();
+            ProgressBar yup = findViewById(R.id.progressBar);
+            if (yup.getProgress() == 0) {
+                yup.setProgress(33);
+                skip();
+            } else if (yup.getProgress() == 33) {
+                yup.setProgress(66);
+                skip();
+            } else {
+                yup.setProgress(100);
+            }
         }
     }
     public void gotoSound(final View activity_main) {
