@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,6 +16,16 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 import android.widget.Switch;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.io.BufferedReader;
@@ -187,7 +198,8 @@ public class MainActivity extends AppCompatActivity {
     public void skipThing(View rhymegame) {
         skip();
     }
-    public void sendRhyme(View argument) {
+    public RequestQueue requestQueue;
+    public void sendRhyme(final View activity_main) {
         TextView thing = findViewById(R.id.wordToRhyme);
         EditText otherThing = findViewById(R.id.editText);
         if (soundsSimilar(thing.getText().toString()).contains(otherThing.getText())) {
@@ -210,12 +222,28 @@ public class MainActivity extends AppCompatActivity {
         TextView rhymeWord = findViewById(R.id.wordToRhyme);
         int whichWord = (int) (Math.random()*(words.length - 1));
         rhymeWord.setText(words[whichWord]);
+        requestQueue = Volley.newRequestQueue(this);
     }
 
     //THIS IS ALL FROM A DIFFERENT APP.
     public String soundsSimilar(String word) {
         String s = word.replaceAll(" ", "+");
-        return getJSON("http://api.datamuse.com/words?sl=" + s);
+        String url = ("http://api.datamuse.com/words?rel_rhy=" + s);
+        JsonObjectRequest getRequest = new JsonObjectRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        System.out.println("Response" + response.toString());
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("Error.Response", error.toString());
+            }
+        }
+        );
+        requestQueue.add(getRequest);
+        return "hey";
     }
     private String getJSON(String url) {
         URL datamuse;
