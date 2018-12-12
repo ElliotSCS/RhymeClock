@@ -30,15 +30,18 @@
             android:onClick="gotoSound"
             android:text="DEMO"
             app:layout_constraintEnd_toEndOf="parent"> </Button>
+
         <android.support.constraint.ConstraintLayout
             android:layout_width="395dp"
-            android:layout_height="678dp"
+            android:layout_height="493dp"
             android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/alarms">
 
             <TextView
                 android:id="@+id/wordToRhyme"
@@ -56,33 +59,33 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ProgressBar
-                    android:id="@+id/progressBar"
-                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-                    android:layout_width="0dp"
-                    android:layout_height="28dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:scaleY="4"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/wordToRhyme" />
+                android:id="@+id/progressBar"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="0dp"
+                android:layout_height="28dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:scaleY="4"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/wordToRhyme" />
 
             <TextView
-                    android:id="@+id/wordsCompleted"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:fontFamily="serif"
-                    android:gravity="center_vertical"
-                    android:text="placeholder"
-                    android:textSize="18sp"
-                    android:textStyle="italic"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/progressBar" />
+                android:id="@+id/wordsCompleted"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="serif"
+                android:gravity="center_vertical"
+                android:text="placeholder"
+                android:textSize="18sp"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/progressBar" />
 
             <Button
                 android:id="@+id/submit"
@@ -120,8 +123,8 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/wordsCompleted"
-                app:layout_constraintVertical_bias="0.118" />
+                app:layout_constraintTop_toBottomOf="@+id/skip"
+                app:layout_constraintVertical_bias="0.015" />
 
         </android.support.constraint.ConstraintLayout>
     </android.support.constraint.ConstraintLayout>

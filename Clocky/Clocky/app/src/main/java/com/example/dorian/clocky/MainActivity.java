@@ -7,15 +7,26 @@ import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 import android.widget.Switch;
 
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonObject;
-import com.google.gson.stream.JsonReader;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+import com.mashape.unirest.http.HttpResponse;
+import com.mashape.unirest.http.JsonNode;
+import com.mashape.unirest.http.Unirest;
+import com.mashape.unirest.http.exceptions.UnirestException;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -38,9 +49,6 @@ public class MainActivity extends AppCompatActivity {
     }
     public void gotoAlarm(View activity_main) {
         setContentView(R.layout.activity_main);
-    }
-    public void gotoSound(View activity_main) {
-        setContentView(R.layout.sounds);
     }
     public void gotoSetting(View activity_main) {
         setContentView(R.layout.settings);
@@ -176,6 +184,11 @@ public class MainActivity extends AppCompatActivity {
                 Toast.LENGTH_LONG).show();
         return;
     }
+
+    public void gotoSound(final View activity_main) {
+        setContentView(R.layout.rhymegame);
+    }
+
     //THIS IS ALL FROM A DIFFERENT APP.
     public String soundsSimilar(String word) {
         String s = word.replaceAll(" ", "+");
