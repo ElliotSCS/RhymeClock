@@ -16,6 +16,9 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 import android.widget.Switch;
+
+import com.android.volley.toolbox.Volley;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.io.BufferedReader;
@@ -200,7 +203,6 @@ public class MainActivity extends AppCompatActivity {
         skip();
     }
     public void sendRhyme(View argument) {
-<<<<<<< HEAD
         String name = soundsSimilar("pie");
             System.out.println(name);
     }
@@ -208,7 +210,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.rhymegame);
         final EditText edit =  (EditText) findViewById(R.id.editText);
         requestQueue = Volley.newRequestQueue(this);
-=======
         System.out.println(soundsSimilar("pie"));
         TextView thing = findViewById(R.id.wordToRhyme);
         EditText otherThing = findViewById(R.id.editText);
@@ -232,7 +233,6 @@ public class MainActivity extends AppCompatActivity {
         TextView rhymeWord = findViewById(R.id.wordToRhyme);
         int whichWord = (int) (Math.random()*(words.length - 1));
         rhymeWord.setText(words[whichWord]);
->>>>>>> 85b20dc635e3ccf81f9b03221b2e395512cfeaa6
     }
     public RequestQueue requestQueue;
     //THIS IS ALL FROM A DIFFERENT APP.
