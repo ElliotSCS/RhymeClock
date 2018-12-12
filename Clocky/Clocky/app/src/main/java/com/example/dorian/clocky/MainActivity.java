@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -179,14 +180,25 @@ public class MainActivity extends AppCompatActivity {
             alarmMgr.cancel(alarmIntent);
         }
     }
+    /**
+    final EditText takeme = findViewById(R.id.editText);
+    final String taker = takeme.toString();
+    final TextView mainWord = findViewById(R.id.wordToRhyme);
+    final String mainString = mainWord.toString();
     public void sendRhyme(View argument) {
-            Toast.makeText(getApplicationContext(), "This is my Toast message!",
-                Toast.LENGTH_LONG).show();
-        return;
+        if (soundsSimilar(mainString).contains(taker)){
+            Toast.makeText(getApplicationContext(), "This is it", Toast.LENGTH_LONG).show();
+        }
     }
-
+*/
+    public void sendRhyme(View argument) {
+        if (soundsSimilar(getString(R.id.wordToRhyme).toString()).contains()) {
+            Toast.makeText(getApplicationContext(), "This is it", Toast.LENGTH_LONG).show();
+        }
+    }
     public void gotoSound(final View activity_main) {
         setContentView(R.layout.rhymegame);
+        final EditText edit =  (EditText) findViewById(R.id.editText);
     }
 
     //THIS IS ALL FROM A DIFFERENT APP.
