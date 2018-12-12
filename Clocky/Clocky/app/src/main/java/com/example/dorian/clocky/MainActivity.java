@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -192,19 +193,34 @@ public class MainActivity extends AppCompatActivity {
     }
 */
     public void sendRhyme(View argument) {
-        if (soundsSimilar(getString(R.id.wordToRhyme).toString()).contains()) {
-            Toast.makeText(getApplicationContext(), "This is it", Toast.LENGTH_LONG).show();
-        }
+        String name = soundsSimilar("pie");
+            System.out.println(name);
     }
     public void gotoSound(final View activity_main) {
         setContentView(R.layout.rhymegame);
         final EditText edit =  (EditText) findViewById(R.id.editText);
+        requestQueue = Volley.newRequestQueue(this);
     }
-
+    public RequestQueue requestQueue;
     //THIS IS ALL FROM A DIFFERENT APP.
     public String soundsSimilar(String word) {
         String s = word.replaceAll(" ", "+");
-        return getJSON("http://api.datamuse.com/words?sl=" + s);
+        String url = ("http://api.datamuse.com/words?rel_rhy=" + s);
+        JsonObjectRequest getRequest = new JsonObjectRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        System.out.println("Response" + response.toString());
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("Error.Response", error.toString());
+            }
+        }
+        );
+        requestQueue.add(getRequest);
+        return "hey";
     }
     private String getJSON(String url) {
         URL datamuse;
@@ -226,4 +242,5 @@ public class MainActivity extends AppCompatActivity {
         }
         return s != null ? s.toString() : null;
     }
+
 }
