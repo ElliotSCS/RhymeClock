@@ -72,21 +72,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/wordToRhyme" />
 
-            <TextView
-                android:id="@+id/wordsCompleted"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                android:fontFamily="serif"
-                android:gravity="center_vertical"
-                android:text="placeholder"
-                android:textSize="18sp"
-                android:textStyle="italic"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/progressBar" />
-
             <Button
                 android:id="@+id/submit"
                 android:layout_width="wrap_content"
@@ -96,7 +81,7 @@
                 android:onClick="sendRhyme"
                 android:text="Rhyme!"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/wordsCompleted" />
+                app:layout_constraintTop_toBottomOf="@+id/progressBar" />
 
             <Button
                 android:id="@+id/skip"
@@ -104,16 +89,17 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="60dp"
                 android:layout_marginTop="8dp"
+                android:onClick="skipThing"
                 android:text="Skip!"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/wordsCompleted" />
+                app:layout_constraintTop_toBottomOf="@+id/progressBar" />
 
             <EditText
                 android:id="@+id/editText"
                 android:layout_width="343dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="24dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
                 android:ems="10"

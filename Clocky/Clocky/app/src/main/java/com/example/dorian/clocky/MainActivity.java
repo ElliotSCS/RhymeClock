@@ -10,26 +10,14 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 import android.widget.Switch;
-
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.JsonNode;
-import com.mashape.unirest.http.Unirest;
-import com.mashape.unirest.http.exceptions.UnirestException;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
-
+import java.util.ArrayList;
+import java.util.List;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -41,6 +29,13 @@ import java.util.Calendar;
 public class MainActivity extends AppCompatActivity {
     AlarmManager alarmMgr;
     PendingIntent alarmIntent;
+    int[] days;
+    int hour;
+    int minute;
+    String amOrPm;
+    boolean alarmSet = false;
+    String[] words = {"pie", "bye", "chair", "mouse", "headset", "girl", "boy", "woman", "man", "television", "laptop", "course",
+            "assistant", "developer", "birthday", "final", "library", "table"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public void gotoAlarm(View activity_main) {
         setContentView(R.layout.activity_main);
+        alarmPanel(days, hour, minute, amOrPm);
     }
     public void gotoSetting(View activity_main) {
         setContentView(R.layout.settings);
@@ -62,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         //ACTION_RINGTONE_PICKER()
     }
     public void saveMethod(View alarmcreation) {
-        int[] days = new int[7];
+        days = new int[7];
         ToggleButton mon = findViewById(R.id.mondayButton);
         ToggleButton tues = findViewById(R.id.tuesdayButton);
         ToggleButton wed = findViewById(R.id.wednesdayButton);
@@ -106,9 +102,9 @@ public class MainActivity extends AppCompatActivity {
             days[6] = 0;
         }
         TimePicker time = findViewById(R.id.simpleTimePicker);
-        int hour = time.getCurrentHour();
-        int minute = time.getCurrentMinute();
-        String amOrPm = "AM";
+        hour = time.getCurrentHour();
+        minute = time.getCurrentMinute();
+        amOrPm = "AM";
         if (hour == 12) {
             amOrPm = "PM";
         } else if (hour > 12) {
@@ -116,9 +112,13 @@ public class MainActivity extends AppCompatActivity {
             amOrPm = "PM";
         }
         setContentView(R.layout.activity_main);
+        alarmSet = true;
         alarmPanel(days, hour, minute, amOrPm);
     }
     public void alarmPanel(int[] days, int hour, int minute, String AP) {
+        if (!(alarmSet)) {
+            return;
+        }
         ConstraintLayout sample = findViewById(R.id.Sample_Alarm);
         final TextView thing = findViewById(R.id.alarmTime);
         String insert = "";
@@ -192,7 +192,15 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 */
+    public void skip() {
+        TextView thing = findViewById(R.id.wordToRhyme);
+        thing.setText(words[(int) (Math.random() * (words.length - 1))]);
+    }
+    public void skipThing(View rhymegame) {
+        skip();
+    }
     public void sendRhyme(View argument) {
+<<<<<<< HEAD
         String name = soundsSimilar("pie");
             System.out.println(name);
     }
@@ -200,6 +208,31 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.rhymegame);
         final EditText edit =  (EditText) findViewById(R.id.editText);
         requestQueue = Volley.newRequestQueue(this);
+=======
+        System.out.println(soundsSimilar("pie"));
+        TextView thing = findViewById(R.id.wordToRhyme);
+        EditText otherThing = findViewById(R.id.editText);
+        if (soundsSimilar(thing.getText().toString()).contains(otherThing.getText())) {
+            Toast.makeText(getApplicationContext(), "Correct!", Toast.LENGTH_LONG).show();
+            ProgressBar yup = findViewById(R.id.progressBar);
+            if (yup.getProgress() == 0) {
+                yup.setProgress(33);
+                skip();
+            } else if (yup.getProgress() == 33) {
+                yup.setProgress(66);
+                skip();
+            } else {
+                yup.setProgress(100);
+            }
+        }
+    }
+    public void gotoSound(final View activity_main) {
+        setContentView(R.layout.rhymegame);
+        final EditText edit = findViewById(R.id.editText);
+        TextView rhymeWord = findViewById(R.id.wordToRhyme);
+        int whichWord = (int) (Math.random()*(words.length - 1));
+        rhymeWord.setText(words[whichWord]);
+>>>>>>> 85b20dc635e3ccf81f9b03221b2e395512cfeaa6
     }
     public RequestQueue requestQueue;
     //THIS IS ALL FROM A DIFFERENT APP.
