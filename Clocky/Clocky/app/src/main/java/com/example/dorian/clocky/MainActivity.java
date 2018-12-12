@@ -7,6 +7,10 @@ import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+
+import java.util.Iterator;
+import java.util.List;
+import java.util.ArrayList;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,9 +25,12 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.mashape.unirest.http.JsonNode;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -199,10 +206,30 @@ public class MainActivity extends AppCompatActivity {
         skip();
     }
     public RequestQueue requestQueue;
+    /*public void checkRhyme(ArrayList<String> input) {
+        EditText otherThing = findViewById(R.id.editText);
+        if (input.contains(otherThing.getText())) {
+            System.out.println("SEND RYHME IS WORKING");
+            Toast.makeText(getApplicationContext(), "Correct!", Toast.LENGTH_LONG).show();
+            ProgressBar yup = findViewById(R.id.progressBar);
+            if (yup.getProgress() == 0) {
+                yup.setProgress(33);
+                skip();
+            } else if (yup.getProgress() == 33) {
+                yup.setProgress(66);
+                skip();
+            } else {
+                yup.setProgress(100);
+            }
+        }
+    }*/
+
     public void sendRhyme(final View activity_main) {
         TextView thing = findViewById(R.id.wordToRhyme);
         EditText otherThing = findViewById(R.id.editText);
-        if (soundsSimilar(thing.getText().toString()).contains(otherThing.getText())) {
+        soundsSimilar(thing.getText().toString());
+        if (true/*soundsSimilar(thing.getText().toString()).contains(otherThing.getText())*/) {
+            System.out.println("SEND RYHME IS WORKING");
             Toast.makeText(getApplicationContext(), "Correct!", Toast.LENGTH_LONG).show();
             ProgressBar yup = findViewById(R.id.progressBar);
             if (yup.getProgress() == 0) {
@@ -224,18 +251,23 @@ public class MainActivity extends AppCompatActivity {
         rhymeWord.setText(words[whichWord]);
         requestQueue = Volley.newRequestQueue(this);
     }
-
+    ArrayList<String> toReturn = new ArrayList<>();
+    JSONArray thing;
     //THIS IS ALL FROM A DIFFERENT APP.
-    public String soundsSimilar(String word) {
+    public List<String> soundsSimilar(String word) {
         String s = word.replaceAll(" ", "+");
         String url = ("http://api.datamuse.com/words?rel_rhy=" + s);
-        JsonObjectRequest getRequest = new JsonObjectRequest(Request.Method.GET, url, null,
-                new Response.Listener<JSONObject>() {
+        toReturn = new ArrayList<>();
+        final int test = 1;
+        JsonArrayRequest getRequest = new JsonArrayRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONArray>() {
                     @Override
-                    public void onResponse(JSONObject response) {
-                        System.out.println("Response" + response.toString());
+                    public void onResponse(JSONArray response) {
+                        thing = response;
+
                     }
                 }, new Response.ErrorListener() {
+
             @Override
             public void onErrorResponse(VolleyError error) {
                 Log.d("Error.Response", error.toString());
@@ -243,7 +275,21 @@ public class MainActivity extends AppCompatActivity {
         }
         );
         requestQueue.add(getRequest);
-        return "hey";
+        //
+        try {
+            String toAdd;
+            for (int i = 0; i < thing.length(); i++) {
+                toAdd = (String)((JSONObject) thing.get(i)).get("word");
+                //System.out.println(toAdd);
+                toReturn.add(toAdd);
+                //System.out.println(toReturn);
+            }
+        } catch(Exception e) {
+            System.out.println(e);
+        }
+        //System.out.println(thing);
+        System.out.println(toReturn);
+        return toReturn;
     }
     private String getJSON(String url) {
         URL datamuse;
